@@ -1,6 +1,7 @@
 import numpy as np
 import tensorflow as tf
 import matplotlib.pyplot as plt
+import matplotlib
 from replayBuffer import ReplayBuffer
 class Agent_DQN:
     def __init__(self,
@@ -175,14 +176,8 @@ class Agent_DQN:
 
 
     def plot_loss(self):
-        # 파이썬에서 Times New Roman 글씨체를 이용하여 그래프를 출력할 수 있음!
-        import matplotlib
-        import matplotlib.pyplot as plt
-        matplotlib.font_manager._rebuild()
-        plt.rcParams['font.family'] = 'Times New Roman'
-        plt.rcParams.update({'font.size': 25})
-        matplotlib.rc('text', usetex=True)
-        plt.title('$\mathit{History}$', fontsize=25)
+        # 파이썬에서 Times New Roman 글씨체를 이용하여 그래프를 출력할 수 있음!  
+        plt.title('History')
         ms = 0.1
         me = 1
         line_width = 0.5
