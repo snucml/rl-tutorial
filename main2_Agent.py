@@ -1,6 +1,7 @@
 
 import tensorflow as tf
 import numpy as np
+import matplotlib.pyplot as plt
 from replayBuffer import ReplayBuffer
 
 class Agent_DDPG(object):
@@ -106,13 +107,7 @@ class Agent_DDPG(object):
             return tf.layers.dense(hidden1, 1, trainable=trainable)
 
     def plot_loss(self):
-        import matplotlib
-        import matplotlib.pyplot as plt
-        matplotlib.font_manager._rebuild()
-        plt.rcParams['font.family'] = 'Times New Roman'
-        plt.rcParams.update({'font.size': 25})
-        matplotlib.rc('text', usetex=True)
-        plt.title('$\mathit{history}$', fontsize=25)
+        plt.title('history', fontsize=25)
         ms = 0.1
         me = 1
         line_width = 0.1
@@ -137,7 +132,6 @@ class Agent_DDPG(object):
         plt.show()
 
     def plot_reward(self, reward_history):
-        import matplotlib.pyplot as plt
         plt.plot(np.arange(len(reward_history)), reward_history)
         plt.ylabel('Reward')
         plt.xlabel('Episodes')
